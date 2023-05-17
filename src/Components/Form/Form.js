@@ -98,6 +98,8 @@ function Form() {
       color = '081f2c'
     } else if (value === 'cream') {
       color = 'f3eee8'
+    } else if (value === 'dove') {
+      color = 'e2e8ee'
     } else {
       color = value
     }
@@ -479,6 +481,10 @@ function Form() {
             <tr>
               <td>cream</td>
               <td style={{backgroundColor: "#f3eee8"}}></td>
+            </tr> 
+            <tr>
+              <td>dove</td>
+              <td style={{backgroundColor: "#e2e8ee"}}></td>
             </tr>                                               
         </table>
         </Dialog.Description>
