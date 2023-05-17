@@ -479,9 +479,9 @@ function Form() {
           Background block guide:
             <ol>
               <li>Enter all fields for desired CTA</li>
-              <li>Click capture image to download cta as image</li>
-              <li>Upload image into Ometria and copy URL for image</li>
-              <li>Paste URL into 'Image URL' field</li>
+              <li>Click capture image to download the CTA as image</li>
+              <li>Upload image into Ometria and copy the URL for image</li>
+              <li>Paste URL into the 'Image URL' field</li>
               <li>Select 'Enable Image'</li>
               <li>For desktop code: hit 'Copy Code' and paste code into desired location, making sure to place inside the th elements if using a x2 or x3 layout</li>
               <li>For mobile code: uncheck 'Enable Image', hit 'Copy Code' and paste into desired location.</li>
