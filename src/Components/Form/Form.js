@@ -42,6 +42,9 @@ function Form() {
     } else if (value === 'gw all') {
       url = 'https://www.crewclothing.co.uk/kids/girls/'
       name = 'Girls All Clothing'
+    } else if (value === 'kids all') {
+      url = 'https://www.crewclothing.co.uk/kids/kids-clothing-accessories-and-footwear/'
+      name = 'Kids All Clothing'
       linkNameInput.value = name
     } else if (value === 'ww new') {
       url = 'https://www.crewclothing.co.uk/new-in/new-in-for-her/'
@@ -422,6 +425,10 @@ function Form() {
             <tr>
               <td>gw all</td>
               <td>Girls’ All Clothing</td>
+            </tr> 
+            <tr>
+              <td>kids all</td>
+              <td>Kids’ All Clothing</td>
             </tr> 
             <tr>
               <td>ww new</td>
