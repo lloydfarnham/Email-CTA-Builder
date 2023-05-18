@@ -319,47 +319,49 @@ function Form() {
         placeholder="URL"
         onChange={handleUrlChange}
       />
-      <div className="color-container">
-        <input
-          className="input"
-          id="StrokeColor"
-          type="text"
-          placeholder="Stroke Colour"
-          onChange={handleStrokeColorChange}
-        />
-        <div
-          className="color"
-          id="StrokeColourDisplay"
-          style={{ backgroundColor: "#" + strokeColor }}
-        ></div>
-      </div>
-      <div className="color-container">
-        <input
-          className="input"
-          id="FillColor"
-          type="text"
-          placeholder="Fill Colour"
-          onChange={handleFillColorChange}
-        />
-        <div
-          className="color"
-          id="FillColorDisplay"
-          style={{ backgroundColor: "#" + fillColor }}
-        ></div>
-      </div>
-      <div className="color-container">
-        <input
-          className="input"
-          id="TextColor"
-          type="text"
-          placeholder="Text Colour"
-          onChange={handleTextColorChange}          
-        />
-        <div
-          className="color"
-          id="TextColorDisplay"
-          style={{ backgroundColor: "#" + textColor }}
-        ></div>
+      <div className="color-inputs">
+        <div className="color-container">
+          <input
+            className="input"
+            id="StrokeColor"
+            type="text"
+            placeholder="Stroke Colour"
+            onChange={handleStrokeColorChange}
+          />
+          <div
+            className="color"
+            id="StrokeColourDisplay"
+            style={{ backgroundColor: "#" + strokeColor }}
+          ></div>
+        </div>
+        <div className="color-container">
+          <input
+            className="input"
+            id="FillColor"
+            type="text"
+            placeholder="Fill Colour"
+            onChange={handleFillColorChange}
+          />
+          <div
+            className="color"
+            id="FillColorDisplay"
+            style={{ backgroundColor: "#" + fillColor }}
+          ></div>
+        </div>
+        <div className="color-container">
+          <input
+            className="input"
+            id="TextColor"
+            type="text"
+            placeholder="Text Colour"
+            onChange={handleTextColorChange}          
+          />
+          <div
+            className="color"
+            id="TextColorDisplay"
+            style={{ backgroundColor: "#" + textColor }}
+          ></div>
+        </div>
       </div>
       <input
         className="input"
