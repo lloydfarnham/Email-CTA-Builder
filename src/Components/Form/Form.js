@@ -229,7 +229,6 @@ function Form() {
       box-sizing: border-box;
       mso-hide:all; 
       display:inline-block;
-      ${overflow}
       " om:linkid="13:0">${label}</a></div>
 
         </td>
