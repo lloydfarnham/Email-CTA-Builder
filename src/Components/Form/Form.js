@@ -163,7 +163,7 @@ function Form() {
     const code = `
     <table class="${tableClass}" align="center" border="0" cellspacing="0" cellpadding="0" role="presentation" style="margin: 0 auto; width: ${width}px; max-width: ${width}px;">
     <tr>
-      <td class="plr3" align="center" style="margin: 0; padding: 0;">
+      <td align="center" style="margin: 0; padding-left: 3px; padding-right: 3px;">
         <div>
         <!--[if mso]>
         ${
