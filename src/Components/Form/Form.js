@@ -152,12 +152,18 @@ function Form() {
       setWidth(212);
       outlookWidth = 165;
       overflow = "";
-    } else {
+    } else if (layout === "x3") {
       tableClass = "wf";
       minWidth = "";
       setWidth(158);
       outlookWidth = 112.5;
       overflow = "white-space: nowrap; overflow: hidden";
+    } else {
+      tableClass = "wf";
+      minWidth = "min-width:418px;";
+      setWidth(424);
+      outlookWidth = 313.5;
+      overflow = "";
     }
 
     const code = `
@@ -178,9 +184,9 @@ function Form() {
               border="0" 
               style="display:block; 
               margin:0 auto; 
-              max-width:${width}px; 
+              max-width:${width - 6}px; 
               padding:0px;" 
-              width="${width}" 
+              width="${width - 6}" 
               height="auto">
           </a>`
             : `<v:rect 
@@ -190,6 +196,7 @@ function Form() {
             style="height:33.75pt;
               v-text-anchor:middle;
               width:${outlookWidth}pt;" 
+            strokeweight="1.5pt"
             strokecolor="#${strokeColor}" 
             fillcolor="#${fillColor}">
             <w:anchorlock/>
@@ -211,7 +218,7 @@ function Form() {
       line-height:40px;
 
       background-color:#${fillColor};
-      border:1pt solid #${strokeColor};
+      border:1.5pt solid #${strokeColor};
       border-radius: 1px;
       color:#${textColor};
 
@@ -290,6 +297,9 @@ function Form() {
             <ToggleGroup.Item value="x3" className="ToggleGroupItem">
               X3
             </ToggleGroup.Item>
+            <ToggleGroup.Item value="double" className="ToggleGroupItem">
+              D
+            </ToggleGroup.Item>
           </ToggleGroup.Root>
 
           <Toast.Provider swipeDirection="right">
@@ -332,7 +342,7 @@ function Form() {
         <input className="input" id="Label" type="text" placeholder="Label" onChange={handleLabelChange} />
         <input className="input" id="LinkName" type="text" placeholder="Link Name" onChange={handleLinkNameChange} />
         <div className="preview">
-          <div ref={exportRef} className="stroke" style={{ backgroundColor: "#" + strokeColor, width: width * 2 + "px" }}>
+          <div ref={exportRef} className="stroke" style={{ backgroundColor: "#" + strokeColor, width: width * 2 + 2 + "px" }}>
             <div className="fill" style={{ backgroundColor: "#" + fillColor, width: width * 2 - 4 + "px" }}>
               <p className="label" style={{ color: "#" + textColor }}>
                 {label}
