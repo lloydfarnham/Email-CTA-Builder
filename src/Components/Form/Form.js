@@ -162,7 +162,7 @@ function Form() {
       tableClass = "wf";
       minWidth = "min-width:418px;";
       setWidth(424);
-      outlookWidth = 313.5;
+      outlookWidth = 336;
       overflow = "";
     }
 
