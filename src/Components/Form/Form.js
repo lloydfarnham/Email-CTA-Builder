@@ -120,9 +120,23 @@ function Form() {
     setLabel(event.target.value.toUpperCase().replace("'", "’"));
   };
   const handleLinkNameChange = (event) => {
-    const value = event.target.value.replace(/\b\w/g, (match) => match.toUpperCase()).replace(/\B\w/g, (match) => match.toLowerCase());
-    setLinkName(value);
-    event.target.value = value;
+    const value = event.target.value;
+
+    if (value.includes("_")) {
+      // If the input contains an underscore, capitalize all letters
+      const newValue = value.replace(/[^_]/g, (match) => match.toUpperCase());
+      setLinkName(newValue);
+      event.target.value = newValue;
+    } else {
+      // If there's no underscore, capitalize first letter of every word, and lowercase the rest
+      const newValue = value
+        .toLowerCase()
+        .replace(/\b\w/g, (match) => match.toUpperCase())
+        .replace(/\B\w/g, (match) => match.toLowerCase());
+
+      setLinkName(newValue);
+      event.target.value = newValue;
+    }
   };
   const handleEnableImage = () => {
     setEnableImage((prevState) => !prevState);
