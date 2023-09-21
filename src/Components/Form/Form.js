@@ -207,7 +207,7 @@ function Form() {
             xmlns:v="urn:schemas-microsoft-com:vml" 
             xmlns:w="urn:schemas-microsoft-com:office:word" 
             href="${url}" 
-            style="height:26.25pt;
+            style="height:29.25pt;
               v-text-anchor:middle;
               width:${outlookWidth}pt;" 
             strokeweight="1.5pt"
