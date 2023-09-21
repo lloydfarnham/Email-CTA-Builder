@@ -356,13 +356,9 @@ function Form() {
         <input className="input" id="Label" type="text" placeholder="Label" onChange={handleLabelChange} />
         <input className="input" id="LinkName" type="text" placeholder="Link Name" onChange={handleLinkNameChange} />
         <div className="preview">
-          <div ref={exportRef} className="stroke" style={{ backgroundColor: "#" + strokeColor, width: width * 2 + 2 + "px" }}>
-            <div className="fill" style={{ backgroundColor: "#" + fillColor, width: width * 2 - 4 + "px" }}>
-              <p className="label" style={{ color: "#" + textColor }}>
-                {label}
-              </p>
-            </div>
-          </div>
+          <p className="label" style={{ color: "#" + textColor, width: width * 2 + 2 + "px", border: "1.5pt solid #" + strokeColor, backgroundColor:  "#" + fillColor}}>
+            {label}
+          </p>
         </div>
 
         <div className="image-url-container">
