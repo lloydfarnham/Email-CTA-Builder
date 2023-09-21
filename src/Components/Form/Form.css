@@ -105,12 +105,12 @@ body {
     align-items: center;
     justify-content: center;
     margin: 30px;
-    height: 86px;
+    height: 76px;
     text-align: center;
 }
 
 .fill {
-    height: 80px;
+    height: 70px;
     display: flex;
     justify-content: center;
     align-items: center;

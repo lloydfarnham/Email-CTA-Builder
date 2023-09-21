@@ -207,7 +207,7 @@ function Form() {
             xmlns:v="urn:schemas-microsoft-com:vml" 
             xmlns:w="urn:schemas-microsoft-com:office:word" 
             href="${url}" 
-            style="height:33.75pt;
+            style="height:26.25pt;
               v-text-anchor:middle;
               width:${outlookWidth}pt;" 
             strokeweight="1.5pt"
@@ -229,7 +229,7 @@ function Form() {
 
       width:100%;
       ${minWidth}
-      line-height:40px;
+      line-height:35px;
 
       background-color:#${fillColor};
       border:1.5pt solid #${strokeColor};
