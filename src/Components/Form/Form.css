@@ -94,6 +94,14 @@ body {
     margin: 30px;
 }
 
+.labelContainer{
+    height: 75px;
+    margin: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .label {
     font-family: "brandon-grotesque";
     font-weight: bold;
