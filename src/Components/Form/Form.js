@@ -38,6 +38,7 @@ function Form() {
     } else if (value === "gw all") {
       url = "https://www.crewclothing.co.uk/kids/girls/";
       name = "Girls All Clothing";
+      linkNameInput.value = name;
     } else if (value === "kids all") {
       url = "https://www.crewclothing.co.uk/kids/kids-clothing-accessories-and-footwear/";
       name = "Kids All Clothing";
