@@ -1,10 +1,8 @@
 import React, { useEffect, useState, useRef } from "react";
 import * as ToggleGroup from "@radix-ui/react-toggle-group";
-import * as Toggle from "@radix-ui/react-toggle";
 import * as Toast from "@radix-ui/react-toast";
 import * as Dialog from "@radix-ui/react-dialog";
 import { Cross2Icon } from "@radix-ui/react-icons";
-import html2canvas from "html2canvas";
 import "./Radix.css";
 import "./Form.css";
 
@@ -16,9 +14,7 @@ function Form() {
   const [textColor, setTextColor] = useState("ffffff");
   const [label, setLabel] = useState("LINK HERE");
   const [linkName, setLinkName] = useState("");
-  const [width, setWidth] = useState("212");
-  const [enableImage, setEnableImage] = useState(false);
-  const [imageUrl, setImageUrl] = useState("");
+  const [width, setWidth] = useState("206");
   const [open, setOpen] = useState(false);
   const [outputCode, setOutputCode] = useState("");
   const handleUrlChange = (event) => {
@@ -138,157 +134,50 @@ function Form() {
       event.target.value = newValue;
     }
   };
-  const handleEnableImage = () => {
-    setEnableImage((prevState) => !prevState);
-  };
-  const handleImageUrlChange = (event) => {
-    setImageUrl(event.target.value);
-  };
 
-  const exportRef = useRef();
   const timerRef = useRef(0);
 
   const generateOutputCode = () => {
     let tableClass = "wf";
-    let outlookWidth = 165;
-    let minWidth = "min-width:212px;";
     let overflow = "";
 
     if (layout === "x1") {
       tableClass = "w50";
-      minWidth = "min-width:212px;";
-      setWidth(212);
-      outlookWidth = 165;
+      setWidth(206);
       overflow = "";
     } else if (layout === "x2") {
       tableClass = "wf";
-      minWidth = "";
-      setWidth(212);
-      outlookWidth = 165;
+      setWidth(206);
       overflow = "";
     } else if (layout === "x3") {
       tableClass = "wf";
-      minWidth = "";
-      setWidth(158);
-      outlookWidth = 112.5;
+      setWidth(152);
       overflow = "white-space: nowrap; overflow: hidden";
     } else {
       tableClass = "wf";
-      minWidth = "min-width:418px;";
-      setWidth(424);
-      outlookWidth = 336;
+      setWidth(418);
       overflow = "";
     }
 
-    const code = `
-    <table class="${tableClass}" align="center" border="0" cellspacing="0" cellpadding="0" role="presentation" style="margin: 0 auto; width: ${width}px; max-width: ${width}px;">
-    <tr>
-      <td align="center" style="margin: 0; padding-left: 3px; padding-right: 3px;">
-        <div>
-        <!--[if mso]>
-        ${
-          enableImage
-            ? `<table class="wf" align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="margin:0 auto;">
-            <td style="font-size: 1px; line-height: 0px;">&nbsp;</td>
-          </table>
-          <a href="${url}" 
-            om:linkname="${linkName}" 
-            target="_blank">
-            <img src="${imageUrl}" 
-              border="0" 
-              style="display:block; 
-              margin:0 auto; 
-              max-width:${width - 6}px; 
-              padding:0px;" 
-              width="${width - 6}" 
-              height="auto">
-          </a>`
-            : `<v:rect 
-            xmlns:v="urn:schemas-microsoft-com:vml" 
-            xmlns:w="urn:schemas-microsoft-com:office:word" 
-            href="${url}" 
-            style="height:29.25pt;
-              v-text-anchor:middle;
-              width:${outlookWidth}pt;" 
-            strokeweight="1.5pt"
-            strokecolor="#${strokeColor}" 
-            fillcolor="#${fillColor}">
-            <w:anchorlock/>
-            <center 
-              style="color:#${textColor};
-              font-family:sans-serif;
-              font-size:12px;
-              font-weight:bold;">
-              ${label}
-            </center>
-          </v:rect>`
-        }
-        
-    <![endif]-->
-    <a href="${url}" target="_blank" om:linkname="${linkName}" style="
-
-      width:100%;
-      ${minWidth}
-      line-height:35px;
-
-      background-color:#${fillColor};
-      border:1.5pt solid #${strokeColor};
-      border-radius: 1px;
-      color:#${textColor};
-
-      font-family: brandon, Arial, sans-serif;
-      font-weight: bold;
-      font-size: 12px;
-      text-align: center;
-      text-transform: uppercase;
-      text-decoration: none;
-
-      -webkit-text-size-adjust:none;
-      -moz-box-sizing: border-box;
-      -webkit-box-sizing: border-box;
-      -ms-box-sizing: border-box;
-      box-sizing: border-box;
-      mso-hide:all; 
-      display:inline-block;
-      " om:linkid="13:0">${label}</a></div>
-
-        </td>
-      </tr>
-    </table>`;
+    const code = `<table class="${tableClass}" align="center" border="0" cellspacing="0" cellpadding="0" role="presentation" width="${width}" style="width: ${width}px; min-width: ${width}px; background-color: #${fillColor}; border: 1.5pt solid #${strokeColor}">
+  <tr>
+    <td class="button" align="center">
+      <a href="${url}" om:linkname="${linkName}" style="display: inline-block; font-weight: bold; color: #${textColor}; padding: 9px 0px 9px 0px; mso-padding-alt: 0; font-size: 12px; text-align: center; text-decoration: none; width: 100%; ${overflow}" target="_blank"><!--[if mso]><i style="letter-spacing:20px;mso-font-width:-100%;mso-text-raise:18px;">&nbsp;</i><span style="mso-text-raise:9px;"><![endif]-->
+        ${label}
+        <!--[if mso]></span><i style="letter-spacing:20px;mso-font-width:-100%;">&nbsp;</i><![endif]--></a>
+    </td>
+  </tr>
+</table>`;
     setOutputCode(code);
   };
 
   useEffect(() => {
     generateOutputCode();
-  }, [layout, url, strokeColor, fillColor, textColor, label, linkName, width, enableImage, imageUrl]);
+  }, [layout, url, strokeColor, fillColor, textColor, label, linkName, width]);
 
   useEffect(() => {
     return () => clearTimeout(timerRef.current);
   }, []);
-
-  const exportAsImage = (el, imageFileName) => {
-    html2canvas(el, { useCORS: true }).then((canvas) => {
-      canvas.toBlob(
-        (blob) => {
-          const url = URL.createObjectURL(blob);
-          downloadImage(url, imageFileName);
-        },
-        "image/png",
-        1.0
-      );
-    });
-  };
-
-  const downloadImage = (url, fileName) => {
-    const link = document.createElement("a");
-    link.download = fileName;
-    link.href = url;
-    link.style.display = "none";
-    document.body.appendChild(link);
-    link.click();
-    URL.revokeObjectURL(url);
-    document.body.removeChild(link);
-  };
 
   return (
     <div className="form">
@@ -356,23 +245,11 @@ function Form() {
         <input className="input" id="Label" type="text" placeholder="Label" onChange={handleLabelChange} />
         <input className="input" id="LinkName" type="text" placeholder="Link Name" onChange={handleLinkNameChange} />
         <div className="preview">
-          <div className="labelContainer" ref={exportRef}>
+          <div className="labelContainer">
             <p className="label" style={{ color: "#" + textColor, width: width * 2 + 2 + "px", border: "3pt solid #" + strokeColor, backgroundColor: "#" + fillColor }}>
               {label}
             </p>
           </div>
-        </div>
-
-        <div className="image-url-container">
-          <div className="image-buttons-container">
-            <Toggle.Root className="Toggle" onClick={handleEnableImage}>
-              Enable Image
-            </Toggle.Root>
-            <button className="Toggle" onClick={() => exportAsImage(exportRef.current, label)}>
-              Capture Image
-            </button>
-          </div>
-          <input className="input" id="ctaImageUrl" type="text" placeholder="Image URL" onChange={handleImageUrlChange} />
         </div>
       </div>
       <Dialog.Root>
