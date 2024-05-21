@@ -168,9 +168,9 @@ function Form() {
     const code = `<table class="${tableClass}" align="center" border="0" cellspacing="0" cellpadding="0" role="presentation" width="${width}" style="width: ${width}px; background-color: #${fillColor}; border: 1.5pt solid #${strokeColor}">
   <tr>
     <td class="button" align="center">
-      <a href="${url}" om:linkname="${linkName}" style="display: inline-block; font-weight: bold; color: #${textColor}; line-height: 35px; mso-padding-alt: 0; font-size: 12px; text-align: center; vertical-align: middle; text-decoration: none; width: 100%; ${minWidth} ${overflow}" target="_blank"><!--[if mso]><i style="letter-spacing:20px;mso-font-width:-100%;mso-text-raise:20px;">&nbsp;</i><span style="mso-text-raise:10px;"><![endif]-->
+      <a href="${url}" om:linkname="${linkName}" style="display: inline-block; font-weight: bold; color: #${textColor}; line-height: 35px; mso-padding-alt: 0; font-size: 12px; text-align: center; vertical-align: middle; text-decoration: none; width: 100%; ${minWidth} ${overflow}" target="_blank"><!--[if mso]><i style="letter-spacing:6px;mso-font-width:-100%;mso-text-raise:20px;">&nbsp;</i><span style="mso-text-raise:10px;"><![endif]-->
         ${label}
-        <!--[if mso]></span><i style="letter-spacing:20px;mso-font-width:-100%;">&nbsp;</i><![endif]--></a>
+        <!--[if mso]></span><i style="letter-spacing:6px;mso-font-width:-100%;">&nbsp;</i><![endif]--></a>
     </td>
   </tr>
 </table>`;
